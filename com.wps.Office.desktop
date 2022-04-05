@@ -12,7 +12,7 @@ X-DBUS-ServiceName=
 X-DBUS-StartupType=
 X-KDE-SubstituteUID=false
 X-KDE-Username=
-Icon=wps-offiice2019-kprometheus
+Icon=wps-office2019-kprometheus
 InitialPreference=3
 StartupWMClass=wpsoffice
 
