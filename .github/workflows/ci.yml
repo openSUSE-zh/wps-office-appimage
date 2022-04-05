@@ -1,29 +1,24 @@
-name: wps-office
-
+name: ci
 on:
- push:
-  tags:
-   -'v*'
-
+  push:
+    tags: -'v*'
 jobs:
- build:
-  runs-on: ubuntu-18.04
-  steps:
-   - uses: actions/checkout@v1.2.0
-   - name: Install unrpm
-     run: |
-      sudo apt-get update
-      sudo apt-get install obs-build
-
-   - name: Build AppImage
-     run: |
-      bash create_appimage.sh
-
-   - name: Upload binaries to release
-     uses: svenstaro/upload-release-action@v2
-     with:
-      repo_token: ${{ secrets.GITHUB_TOKEN }}
-      file: WPS_Office-x86_64.AppImage
-      asset_name: WPS_Office-$tag.x86_64.AppImage
-      tag: ${{ github.ref }}
-      overwrite: true
+  build:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v1.2.0
+      - name: Install unrpm
+        run: |
+          sudo apt-get update
+          sudo apt-get install obs-build
+      - name: Build AppImage
+        run: |
+          bash create_appimage.sh
+      - name: Upload binaries to release
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: WPS_Office-x86_64.AppImage
+          asset_name: WPS_Office-$tag.x86_64.AppImage
+          tag: ${{ github.ref }}
+          overwrite: true
