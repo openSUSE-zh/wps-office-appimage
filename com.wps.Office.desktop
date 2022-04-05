@@ -1,0 +1,53 @@
+[Desktop Entry]
+Name=WPS Office
+Comment=Use WPS Writer to edit articles and reports.
+Exec=AppRun
+GenericName=WPS Office
+MimeType=application/wps-office.wps;application/wps-office.wpt;application/wps-office.wpso;application/wps-office.wpss;application/wps-office.doc;application/wps-office.dot;application/vnd.ms-word;application/msword;application/x-msword;application/msword-template;application/wps-office.docx;application/wps-office.dotx;application/rtf;application/vnd.ms-word.document.macroEnabled.12;application/vnd.openxmlformats-officedocument.wordprocessingml.document;x-scheme-handler/ksoqing;x-scheme-handler/ksowps;x-scheme-handler/ksowpp;x-scheme-handler/ksoet;x-scheme-handler/ksowpscloudsvr;x-scheme-handler/ksowebstartupwps;x-scheme-handler/ksowebstartupet;x-scheme-handler/ksowebstartupwpp;
+StartupNotify=false
+Terminal=false
+Type=Application
+Categories=Office;WordProcessor;Spreadsheet;Presentation;
+X-DBUS-ServiceName=
+X-DBUS-StartupType=
+X-KDE-SubstituteUID=false
+X-KDE-Username=
+Icon=wps-offiice2019-kprometheus
+InitialPreference=3
+StartupWMClass=wpsoffice
+
+Actions=Writer;Spreadsheets;Presentation;Pdf;
+
+
+[Desktop Action Writer]
+Name=Writer
+X-GenericName=Writer
+X-Comment=Use WPS Writer to edit articles and reports.
+X-MimeType=application/wps-office.wps;application/wps-office.wpt;application/wps-office.wpso;application/wps-office.wpss;application/wps-office.doc;application/wps-office.dot;application/vnd.ms-word;application/msword;application/x-msword;application/msword-template;application/wps-office.docx;application/wps-office.dotx;application/rtf;application/vnd.ms-word.document.macroEnabled.12;application/vnd.openxmlformats-officedocument.wordprocessingml.document;x-scheme-handler/ksoqing;x-scheme-handler/ksowps;x-scheme-handler/ksowpp;x-scheme-handler/ksoet;x-scheme-handler/ksowpscloudsvr;x-scheme-handler/ksowebstartupwps;x-scheme-handler/ksowebstartupet;x-scheme-handler/ksowebstartupwpp;
+X-Categories=Office;WordProcessor;
+Exec=AppRun --writer %F
+X-StartupNotify=false
+
+[Desktop Action Spreadsheets]
+Name=Spreadsheets
+X-GenericName=Spreadsheets
+X-Comment=Use WPS Spreadsheets to analyze manage data.
+X-MimeType=application/wps-office.et;application/wps-office.ett;application/wps-office.ets;application/wps-office.eto;application/wps-office.xls;application/wps-office.xlt;application/vnd.ms-excel;application/msexcel;application/x-msexcel;application/wps-office.xlsx;application/wps-office.xltx;application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+Exec=AppRun --spreadsheets %F
+X-StartupNotify=false
+
+[Desktop Action Presentation]
+Name=Presentation
+X-GenericName=Presentation
+X-Comment=Use WPS Presentation to edit and play presentations.
+X-MimeType=application/wps-office.dps;application/wps-office.dpt;application/wps-office.dpss;application/wps-office.dpso;application/wps-office.ppt;application/wps-office.pot;application/vnd.ms-powerpoint;application/vnd.mspowerpoint;application/mspowerpoint;application/powerpoint;application/x-mspowerpoint;application/wps-office.pptx;application/wps-office.potx;application/vnd.openxmlformats-officedocument.presentationml.presentation;application/vnd.openxmlformats-officedocument.presentationml.slideshow
+Exec=AppRun --presentation %F
+X-StartupNotify=false
+
+[Desktop Action Pdf]
+Name=PDF Reader
+X-GenericName=PDF Reader
+X-Categories=Office;WordProcessor;
+X-Comment=Kingsoft Pdf Reader
+X-MimeType=application/wps-office.pdf;application/pdf
+Exec=AppRun --pdf %F

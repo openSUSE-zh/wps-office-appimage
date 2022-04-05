@@ -1,0 +1,27 @@
+#!/bin/sh
+
+mkdir -p ${HOME}/.fonts/m
+ln -s ${APPDIR}/usr/share/fonts/mtextra.ttf ${HOME}/.fonts/m/mtextra.ttf
+mkdir -p ${HOME}/.fonts/s
+ln -s ${APPDIR}/usr/share/fonts/symbol.ttf ${HOME}/.fonts/s/symbol.ttf
+mkdir -p ${HOME}/.fonts/w
+ln -s ${APPDIR}/usr/share/fonts/WEBDINGS.TTF ${HOME}/.fonts/w/webdings.ttf
+ln -s ${APPDIR}/usr/share/fonts/WINGDNG2.TTF ${HOME}/.fonts/w/wingding2.ttf
+ln -s ${APPDIR}/usr/share/fonts/WINGDNG3.TTF ${HOME}/.fonts/w/wingding3.ttf
+ln -s ${APPDIR}/usr/share/fonts/wingding.ttf ${HOME}/.fonts/w/wingding.ttf
+
+fc-cache
+
+${APPDIR}/wps-launcher
+
+for i in "m" "s" "w"; do
+  rm ${HOME}/.fonts/${i}/*.ttf
+  j=$(find ${HOME}/.fonts/${i} -type f | wc -l)
+  if [ ${j} -le 1 ]
+  then
+    rm ${HOME}/.fonts/${i}/.uuid
+  fi
+  rmdir --ignore-fail-on-non-empty ${HOME}/.fonts/$i
+done
+
+fc-cache
