@@ -16,8 +16,8 @@ pushd ${APPDIR}
 chmod +x AppRun
 unrpm ${WPS_FILE}
 rm -rf ${WPS_FILE}
-ln -sf usr/share/icons/hicolor/256x256/mimetypes/wps-office2019-kprometheus.png .
-ln -sf usr/share/icons/hicolor/256x256/mimetypes/wps-office2019-kprometheus.png ./.DirIcon
+cp -r usr/share/icons/hicolor/256x256/mimetypes/wps-office2019-kprometheus.png .
+cp -r usr/share/icons/hicolor/256x256/mimetypes/wps-office2019-kprometheus.png ./.DirIcon
 popd
 
 wget https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage
