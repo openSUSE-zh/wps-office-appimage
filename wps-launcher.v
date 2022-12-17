@@ -8,7 +8,7 @@ const (
 
 struct App {
 mut:
-	window &ui.Window = 0
+	window &ui.Window = unsafe {nil}
 }
 
 fn main() {
@@ -23,21 +23,20 @@ fn main() {
 		width: win_width
 		height: win_height
 		title: 'WPS Office Launcher'
-		state: app
 		mode: .resizable
 		children: [
 			ui.row(
 				children: [
           ui.column(
             children: [
-					    ui.picture(width: 256, height: 256, path: wps, on_click: wps_click),
-              ui.picture(width: 256, height: 256, path: et, on_click: et_click)
+					    ui.picture(width: 256, height: 256, path: wps, on_click: click_wps),
+              ui.picture(width: 256, height: 256, path: et, on_click: click_et)
             ]
           ),
           ui.column(
             children: [
-              ui.picture(width: 256, height: 256, path: wpp, on_click: wpp_click),
-              ui.picture(width: 256, height: 256, path: pdf, on_click: pdf_click)
+              ui.picture(width: 256, height: 256, path: wpp, on_click: click_wpp),
+              ui.picture(width: 256, height: 256, path: pdf, on_click: click_wpspdf)
             ]
           ),
         ]
@@ -47,23 +46,23 @@ fn main() {
 	ui.run(app.window)
 }
 
-fn wps_click(a voidptr, b voidptr) {
-  os.execute(os.resource_abs_path("opt/kingsoft/wps-office/office6/wps"))
-  exit(0)
+fn click_wps(pic &ui.Picture) {
+  mut process := os.new_process(os.resource_abs_path("opt/kingsoft/wps-office/office6/wps"))
+  process.run()
 }
 
-fn et_click(a voidptr, b voidptr) {
-  os.execute(os.resource_abs_path("opt/kingsoft/wps-office/office6/et"))
-  exit(0)
+fn click_et(pic &ui.Picture) {
+  mut process := os.new_process(os.resource_abs_path("opt/kingsoft/wps-office/office6/et"))
+  process.run()
 }
 
-fn wpp_click(a voidptr, b voidptr) {
-  os.execute(os.resource_abs_path("opt/kingsoft/wps-office/office6/wpp"))
-  exit(0)
+fn click_wpp(pic &ui.Picture) {
+  mut process := os.new_process(os.resource_abs_path("opt/kingsoft/wps-office/office6/wpp"))
+  process.run()
 }
 
-fn pdf_click(a voidptr, b voidptr) {
-  os.execute(os.resource_abs_path("opt/kingsoft/wps-office/office6/wpspdf"))
-  exit(0)
+fn click_wpspdf(pic &ui.Picture) {
+  mut process := os.new_process(os.resource_abs_path("opt/kingsoft/wps-office/office6/wpspdf"))
+  process.run()
 }
 
