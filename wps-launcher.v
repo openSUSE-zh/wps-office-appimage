@@ -47,22 +47,26 @@ fn main() {
 }
 
 fn click_wps(pic &ui.Picture) {
-  mut process := os.new_process(os.resource_abs_path("opt/kingsoft/wps-office/office6/wps"))
+  mut process := os.new_process(os.resource_abs_path("usr/bin/wps"))
+  process.set_args(os.args)
   process.run()
 }
 
 fn click_et(pic &ui.Picture) {
-  mut process := os.new_process(os.resource_abs_path("opt/kingsoft/wps-office/office6/et"))
+  mut process := os.new_process(os.resource_abs_path("usr/bin/et"))
+  process.set_args(os.args)
   process.run()
 }
 
 fn click_wpp(pic &ui.Picture) {
-  mut process := os.new_process(os.resource_abs_path("opt/kingsoft/wps-office/office6/wpp"))
+  mut process := os.new_process(os.resource_abs_path("usr/bin/wpp"))
+  process.set_args(os.args)
   process.run()
 }
 
 fn click_wpspdf(pic &ui.Picture) {
-  mut process := os.new_process(os.resource_abs_path("opt/kingsoft/wps-office/office6/wpspdf"))
+  mut process := os.new_process(os.resource_abs_path("usr/bin/wpspdf"))
+  process.set_args(os.args)
   process.run()
 }
 
