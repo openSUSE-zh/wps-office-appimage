@@ -2,8 +2,17 @@
 
 . version
 
+get_url() {
+  local key="7f8faaaa468174dc1c9cd62e5f218a5b"
+  local md5=$(echo -n $key$1$2 | md5sum | cut -d" " -f1)
+  echo $md5
+}
+
 WPS_FILE="wps-office-${WPS_VERSION}.${WPS_RELEASE}-1.x86_64.rpm"
-WPS_URL="https://wps-linux-personal.wpscdn.cn/wps/download/ep/Linux2019/${WPS_RELEASE}/${WPS_FILE}"
+WPS_PATH="/wps/download/ep/Linux2019/${WPS_RELEASE}/${WPS_FILE}"
+TIMESTAMP=$(date +%s)
+WPS_URL="https://wps-linux-personal.wpscdn.cn${WPS_PATH}?t=${TIMESTAMP}&k=$(get_url ${WPS_PATH} ${TIMESTAMP})"
+echo $WPS_URL
 
 APPDIR="WPS_Office-x86_64.AppDir"
 mkdir -p ${APPDIR}

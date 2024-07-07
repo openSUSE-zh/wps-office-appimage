@@ -1,2 +1,2 @@
 #!/bin/sh
-${APPDIR}/wps-launcher
+${APPDIR}/wps-launcher $*
