@@ -29,7 +29,8 @@ cp -r usr/share/icons/hicolor/256x256/mimetypes/wps-office2019-kprometheus.png .
 cp -r usr/share/icons/hicolor/256x256/mimetypes/wps-office2019-kprometheus.png ./.DirIcon
 popd
 
-wget https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage
+APPIMAGETOOL=$(wget -q https://api.github.com/repos/probonopd/go-appimage/releases -O - | sed 's/[()",{} ]/\n/g' | grep -o 'https.*continuous.*tool.*86_64.*mage$' | head -1)
+wget "$APPIMAGETOOL" -O ./appimagetool-x86_64.AppImage
 chmod +x appimagetool-x86_64.AppImage
 
-./appimagetool-x86_64.AppImage ${APPDIR}
+ARCH=x86_64 VERSION="${WPS_VERSION}" ./appimagetool-x86_64.AppImage -s ${APPDIR}
